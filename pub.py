@@ -15,19 +15,23 @@ def talker():
     # Inicio do node teleop_pub
     rospy.init_node('teleop_pub', anonymous=True)
     
-    
-    while not rospy.is_shutdown():
-        # Print de como usar o robo para  usuario
-        print('Digite W, S, A ou D e tecle enter para comandar os movimentos do robo')
-        
+    # Prints de como usar o robo para  usuario
+    print('Para movimentar o ROSBOT1 voce deve digitar a tecla correspondente ao movimento e apertar ENTER')
+    print('Comandos disponiveis:')
+    print('---------------------------')
+    print('  W')
+    print('A S D')
+    print('---------------------------')
+
+    while not rospy.is_shutdown():           
         # Input da direcao 
-        comando = input('Digite a direcao do movimento:')
+        comando = input('Digite a tecla correspondente ao movimento e tecle ENTER:')
     
         # publicacao da info no topico
         rospy.loginfo(comando)    
         pub.publish(comando)
 
-        # Esperar 2 segundos
+        # Esperar 2 segundos antes do priximo comando
         time.sleep(2)
 
 
