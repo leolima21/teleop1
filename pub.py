@@ -25,7 +25,7 @@ def talker():
 
     while not rospy.is_shutdown():           
         # Input da direcao 
-        comando = input('Digite a tecla correspondente ao movimento e tecle ENTER:')
+        comando = raw_input('Digite a tecla correspondente ao movimento e tecle ENTER:')
     
         # publicacao da info no topico
         rospy.loginfo(comando)    
